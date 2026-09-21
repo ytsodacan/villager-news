@@ -1,10 +1,9 @@
 # Villager News Addon Port
 
 A Fabric port (with a scaffolded NeoForge module) of the **Villager News
-Add-On** for Minecraft Java Edition 26.3. It brings the original Villager
+Add-On** for Minecraft Java Edition 26.1 and up. It brings the original Villager
 News characters, models, animations, textures, and contextual dialogue to
-Java Edition while retaining normal Minecraft villager gameplay. Current
-release: **1.3.6**.
+Java Edition while retaining normal Minecraft villager gameplay.
 
 This mod does **not** include Element Animation's / Oreville Studios' voice
 lines or sound effects. On first launch it asks you to select the Villager
@@ -43,7 +42,7 @@ title screen prompt or later from the handbook's Settings page).
 
 ## Requirements
 
-- Minecraft Java Edition 26.3
+- Minecraft Java Edition 26.1 or newer.
 - Java 26 or newer
 - Fabric Loader 0.19.5 or newer
 - Fabric API for Minecraft 26.3
@@ -59,17 +58,9 @@ Mod Menu is optional. When installed, its Configure button opens the Villager
 News settings directly. Without Mod Menu, the same settings remain available
 in the Villager News Handbook.
 
-### NeoForge
-
-A `neoforge` module is scaffolded in this repository but is **not** a full
-port yet: EMF/ETF/ESF (the animated face, texture, and sound-variant system)
-have no NeoForge equivalent, so the animated mouth/cosmetic layer cannot work
-there without a from-scratch renderer. Treat the NeoForge build as a stub
-until that's addressed.
-
 ## Installation
 
-1. Install Fabric Loader for Minecraft 26.3 on Java 26+.
+1. Install Fabric Loader for Minecraft 26.1 or later on Java 26+.
 2. Download Fabric API, EMF, ETF, and ESF for the same Minecraft version.
 3. Put the dependency jars and the Villager News Addon Port jar in the
    Minecraft `mods` folder.
@@ -151,34 +142,6 @@ Use `/dialoguetest continuous` to run all 523 groups in order. Each group is
 announced with its variant number in chat, and the next variant begins one second
 after the current voice line finishes.
 The setting defaults to `false` for release builds.
-
-Run the asset and dialogue verification with:
-
-```powershell
-node tools/verify-port.mjs
-```
-
-After extracting the original Bedrock packs into `build/bedrock-source`, create
-a formatted copy of the complete add-on, a dialogue symbol map, a feature
-inventory, and a Java dialogue coverage report with:
-
-```powershell
-node tools/deobfuscate-addon.mjs
-```
-
-The output is written to `build/deobfuscated-bedrock-source/full-addon`.
-Wooly's smaller focused source map can also be generated with:
-
-```powershell
-node tools/deobfuscate-wooly.mjs
-```
-
-The focused output is written to `build/deobfuscated-bedrock-source/wooly`. The
-known source symbols are documented in
-[`docs/bedrock-deobfuscation/wooly.md`](docs/bedrock-deobfuscation/wooly.md).
-
-## Credits
-
 Villager News and the original add-on assets were created by **Oreville
 Studios Ltd** and **Element Animation**. The converted models, textures,
 animations, and audio remain the property of their respective owners. See
