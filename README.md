@@ -14,11 +14,6 @@ the rest of your add-on. Skipping that step is fine, but villagers won't have
 any Villager News dialogue, voices, or sounds until you import it (from the
 title screen prompt or later from the handbook's Settings page).
 
-## Community
-
-Join the [Villager News Addon Port Discord server](https://discord.gg/vEpbtj2ChP)
-for support, updates, and discussion.
-
 ## Features
 
 - Detailed animated Villager News models converted for Entity Model Features
