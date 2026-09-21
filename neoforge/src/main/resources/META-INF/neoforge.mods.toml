@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="All-Rights-Reserved"
+issueTrackerURL="https://github.com/"
+
+[[mods]]
+modId="villagernews"
+version="${version}"
+displayName="Villager News Addon Port"
+description='''This is a stub NeoForge build. The full mod (contextual dialogue, EMF/ETF/ESF integration, networking, and the .mcaddon sound importer) is only implemented on Fabric right now - use the Fabric build for the real thing.'''
+authors="Oreville Studios Ltd, Element Animation, Java port assembled by marcy"
+
+[[dependencies.villagernews]]
+    modId="neoforge"
+    type="required"
+    versionRange="[1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.villagernews]]
+    modId="minecraft"
+    type="required"
+    versionRange="[26.3,26.4)"
+    ordering="NONE"
+    side="BOTH"

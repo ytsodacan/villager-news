@@ -1,0 +1,43 @@
+plugins {
+	id 'net.neoforged.moddev' version "${neoforge_moddev_version}"
+}
+
+base {
+	archivesName = "${rootProject.name}-neoforge"
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(26)
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 26
+}
+
+neoForge {
+	version = project.neoforge_version
+
+	runs {
+		client {
+			client()
+		}
+		server {
+			server()
+		}
+	}
+
+	mods {
+		villagernews {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+processResources {
+	inputs.property "version", project.version
+	filesMatching("META-INF/neoforge.mods.toml") {
+		expand "version": project.version
+	}
+}

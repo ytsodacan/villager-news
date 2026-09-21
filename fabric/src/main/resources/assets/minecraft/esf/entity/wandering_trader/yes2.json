@@ -1,0 +1,9 @@
+{
+  "sounds": [
+    {
+      "name": "villagernews:silence",
+      "volume": 0.01,
+      "weight": 1
+    }
+  ]
+}

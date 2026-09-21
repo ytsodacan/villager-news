@@ -1,0 +1,94 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+}
+
+base {
+	archivesName = rootProject.name
+}
+
+repositories {
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "TerraformersMC"
+				url = "https://maven.terraformersmc.com/releases/"
+			}
+		}
+		filter {
+			includeGroup "com.terraformersmc"
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	compileOnly "maven.modrinth:4I1XuqiY:${project.emf_version}"
+	compileOnly "maven.modrinth:BVzZfTc1:${project.etf_version}"
+	compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+processResources {
+	def version = project.version
+	def dialogueTestCommand = project.findProperty("dialogue_test_command")?.toString()?.toBoolean() ?: false
+	inputs.property "version", version
+	inputs.property "dialogue_test_command", dialogueTestCommand
+
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+
+	filesMatching("villagernews-build.properties") {
+		expand "dialogue_test_command": dialogueTestCommand
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	withSourcesJar()
+
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(26)
+	}
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	def projectName = rootProject.name
+	inputs.property "projectName", projectName
+
+	from(rootProject.file("LICENSE")) {
+		rename { "${it}_$projectName"}
+	}
+}
+
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+	}
+}

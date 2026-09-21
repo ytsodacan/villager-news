@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.sillyprootsoda.villagernews.mixin.client",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+	"EMFModelPartMixin",
+    "VillagerProfessionLayerMixin",
+    "VillagerRendererMixin",
+    "VillagerRenderStateMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

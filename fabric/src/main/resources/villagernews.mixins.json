@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.sillyprootsoda.villagernews.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "AbstractVillagerMixin",
+    "SheepSoundMixin",
+    "SpawnEggItemMixin",
+    "VillagerDataMixin",
+    "VillagerSleepMixin",
+    "VillagerSoundMixin",
+    "WanderingTraderSoundMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

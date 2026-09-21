@@ -1,0 +1,12 @@
+.gradle/
+build/
+*/build/
+run/
+.idea/
+*.iml
+.DS_Store
+
+# Never commit the add-on. It is a paid product; each user supplies their own copy.
+*.mcaddon
+*.mcpack
+villagernews/

@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "villagernews",
+	"version": "${version}",
+	"name": "Villager News Addon Port",
+	"description": "A Java Edition port of Villager News with contextual dialogue and EMF, ETF, and ESF models, textures, and sounds.",
+	"authors": [
+		"Oreville Studios Ltd",
+		"Element Animation",
+		"Java port assembled by marcy"
+	],
+	"license": "All-Rights-Reserved",
+	"icon": "assets/villagernews/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.sillyprootsoda.villagernews.VillagerNewsAddonPort"
+		],
+		"client": [
+			"com.sillyprootsoda.villagernews.client.VillagerNewsAddonPortClient"
+		],
+		"modmenu": [
+			"com.sillyprootsoda.villagernews.client.VillagerNewsModMenu"
+		]
+	},
+	"mixins": [
+		"villagernews.mixins.json",
+		{
+			"config": "villagernews.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=26",
+		"fabric-api": "*",
+		"entity_model_features": ">=3.3.8",
+		"entity_texture_features": ">=7.2.4",
+		"entity_sound_features": ">=0.8.2"
+	}
+}
