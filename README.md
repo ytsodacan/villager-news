@@ -1,9 +1,20 @@
 # Villager News Addon Port
 
 A Fabric port (with a scaffolded NeoForge module) of the **Villager News
-Add-On** for Minecraft Java Edition 26.1 and up. It brings the original Villager
+Add-On** for Minecraft Java Edition 26.1-26.3. It brings the original Villager
 News characters, models, animations, textures, and contextual dialogue to
-Java Edition while retaining normal Minecraft villager gameplay.
+Java Edition while retaining normal Minecraft villager gameplay. Current
+release: **1.0.0**.
+
+One jar covers all three Minecraft versions and has been launched and played
+on each. A handful of vanilla APIs changed across 26.1-26.3 (an entity type
+lookup, a pose-stack rotation call, an invulnerability setter, and one
+teleport overload); those are resolved at runtime via reflection in
+[`McCompat`](fabric/src/main/java/com/sillyprootsoda/villagernews/compat/McCompat.java)
+rather than shipped as separate builds. The villager-rendering Mixins are
+marked optional (`defaultRequire: 0`), so if a render hook doesn't match on
+some future version, that one effect quietly no-ops there instead of
+crashing the whole mod.
 
 This mod does **not** include Element Animation's / Oreville Studios' voice
 lines or sound effects. On first launch it asks you to select the Villager
@@ -42,13 +53,12 @@ title screen prompt or later from the handbook's Settings page).
 
 ## Requirements
 
-- Minecraft Java Edition 26.1 or newer.
-- Java 26 or newer
+- Minecraft Java Edition 26.1, 26.2, or 26.3
+- Java 26.1 or newer
 - Fabric Loader 0.19.5 or newer
-- Fabric API for Minecraft 26.3
-- Entity Model Features 3.3.8 or newer (Fabric only - no NeoForge build exists)
-- Entity Texture Features 7.2.4 or newer (Fabric only)
-- Entity Sound Features 0.8.2 or newer (Fabric only)
+- Fabric API for your Minecraft version
+- Entity Model Features, Entity Texture Features, and Entity Sound Features
+  for your Minecraft version (Fabric only - no NeoForge build exists)
 - Your own legally obtained copy of the Villager News `.mcaddon`
 
 EMF, ETF, and ESF are external dependencies. This project does not bundle or
@@ -60,8 +70,8 @@ in the Villager News Handbook.
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft 26.1 or later on Java 26+.
-2. Download Fabric API, EMF, ETF, and ESF for the same Minecraft version.
+1. Install Fabric Loader for Minecraft 26.1, 26.2, or 26.3 on Java 26.1+.
+2. Download Fabric API, EMF, ETF, and ESF matching that same Minecraft version.
 3. Put the dependency jars and the Villager News Addon Port jar in the
    Minecraft `mods` folder.
 4. Start Minecraft with the Fabric profile. On first launch, select your
@@ -142,6 +152,9 @@ Use `/dialoguetest continuous` to run all 523 groups in order. Each group is
 announced with its variant number in chat, and the next variant begins one second
 after the current voice line finishes.
 The setting defaults to `false` for release builds.
+
+## Credits
+
 Villager News and the original add-on assets were created by **Oreville
 Studios Ltd** and **Element Animation**. The converted models, textures,
 animations, and audio remain the property of their respective owners. See

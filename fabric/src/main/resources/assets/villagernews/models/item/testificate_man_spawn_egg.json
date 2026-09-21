@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "villagernews:item/testificate_man_spawn_egg"
+  }
+}

@@ -32,8 +32,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.19.5",
-		"minecraft": "~26.3",
-		"java": ">=26",
+		"minecraft": ">=26.1 <=26.3",
+		"java": ">=26.1",
 		"fabric-api": "*",
 		"entity_model_features": ">=3.3.8",
 		"entity_texture_features": ">=7.2.4",
